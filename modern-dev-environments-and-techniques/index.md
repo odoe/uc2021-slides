@@ -17,20 +17,9 @@
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
 ## Agenda
 
-- Modules, modules, modules - what does it all mean?
-- ES Modules
-- esri-loader
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## Modules, modules, modules - what does it all mean?
-
----------------------
-
-## <span style="color:yellow;">ES Modules (a.k.a ESM)</span>
-## <span style="color:yellow; text-align: left;">AMD</span>
-  
+- Stuff
+- More stuff
+- Alot more stuff
 
 ---
 
@@ -41,31 +30,6 @@
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-- <span style="color:yellow;">ESM is available as:</span>
-  - NPM
-  - CDN
-- <span style="color:yellow; text-align: left;">AMD is available as</span>
-  - NPM
-  - CDN
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-ESM
-
-```js
-// test-esm.js
-export const height = 300;
-export const width = 300;
-
-```
-
-```js
-// index.html
-import {height, width} from './test-esm.js';
-```
 
 AMD
 
@@ -85,7 +49,34 @@ define(() => {
 require(['js/test-amd'],(test) => { let h = test.height); })
 ```
 
+ESM
+
+```js
+// test-esm.js
+export const height = 300;
+export const width = 300;
+
+```
+
+```js
+// index.html
+import {height, width} from './test-esm.js';
+```
+
 ---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+- <span style="color:yellow; text-align: left;">AMD is available as</span>
+  - CDN
+  - NPM
+- <span style="color:yellow;">ESM is available as:</span>
+  - CDN
+  - NPM
+
+---
+
+### Browsers do not natively understand AMD
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 
@@ -94,59 +85,6 @@ require(['js/test-amd'],(test) => { let h = test.height); })
 
 ---
 
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## ESM
-
-```js
-  import Map from '@arcgis/core/Map';
-
-  const map = new Map({
-    basemap: "gray-vector"
-  });
-
-```
-
-- Available as beta since 4.18 (December 2020)
-- Available via NPM (and CDN*)
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## ESM NPM
-
-```js
-  import Map from '@arcgis/core/Map';
-
-  const map = new Map({
-    basemap: "gray-vector"
-  });
-
-```
-
-- <code>@arcgis/core</code>
-- <span style="color:yellow;">Primary use case is local builds</span>
-- Pros: 
-  - Standardized module system
-  - Works natively in modern browsers
-  - Integrates well with most modern frameworks and build tools
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## ESM CDN
-
-<span style="color:red;">Testing and prototyping only</span>
-
-```js
-import Map from "https://js.arcgis.com/4.18/@arcgis/core/Map.js";
-
-const map = new Map({
-  basemap: "gray-vector"
-});
-
-```
-
----
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## AMD modules
@@ -193,7 +131,61 @@ Use <code>arcgis-js-api</code> for API versions <= 4.17
 
 - Cons: 
   - Requires a separate module loader
-  - Integration into frameworks using webpack requires <code>@arcgis/webpack-plugin*</code>
+  - Integration into frameworks isn't straightforward. For example, webpack requires <code>@arcgis/webpack-plugin*</code>
+
+---
+
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+## ESM
+
+```js
+  import Map from '@arcgis/core/Map';
+
+  const map = new Map({
+    basemap: "gray-vector"
+  });
+
+```
+
+- Available via NPM (and CDN*)
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+## ESM NPM
+
+```js
+  import Map from '@arcgis/core/Map';
+
+  const map = new Map({
+    basemap: "gray-vector"
+  });
+
+```
+
+- <code>@arcgis/core</code>
+- <span style="color:yellow;">Primary use case is local builds</span>
+- Pros: 
+  - Standardized module system
+  - Works natively in modern browsers
+  - Integrates well with most modern frameworks and build tools
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+## ESM CDN
+
+<span style="color:red;">Testing and prototyping only</span>
+
+```js
+import Map from "https://js.arcgis.com/4.18/@arcgis/core/Map.js";
+
+const map = new Map({
+  basemap: "gray-vector"
+});
+
+```
 
 ---
 
