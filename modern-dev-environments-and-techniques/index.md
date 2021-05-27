@@ -198,145 +198,7 @@ const map = new Map({
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-## ESM
-
-- Standard Module System for JavaScript
-- Better support in modern build tooling
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## Getting Started
-
-```sh
-npm i @arcgis/core
-```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## Usage
-
-```js
-import WebMap from '@arcgis/core/WebMap';
-import MapView from '@arcgis/core/MapView';
-```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## Migrate from AMD/CDN
-
-- AMD
-
-```diff
-- import WebMap from 'esri/WebMap';
-- import MapView from 'esri/MapView';
-+ import WebMap from '@arcgis/core/WebMap';
-+ import MapView from '@arcgis/core/MapView';
-```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## Migrate from AMD/CDN
-
-- CDN
-
-```diff
-- require([
--     'esri/WebMap',
--     'esri/MapView'
-- ], function(WebMap, MapView) {
--     ...
-- });
-+ import WebMap from '@arcgis/core/WebMap';
-+ import MapView from '@arcgis/core/MapView';
-```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## npm and build tools
-
-- Benefits
-    - customized local build
-    - total JS between 400KB to 2MB
-    - depends on your application
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## ESM CDN
-
-- _Testing purposes only_
-- I'm serious, listen to me
-
-```html
-<script type="module">
-    import ArcGISMap from "https://js.arcgis.com/4.18/@arcgis/core/Map.js";
-    import MapView from "https://js.arcgis.com/4.18/@arcgis/core/views/MapView.js";
-
-    const map = new ArcGISMap({
-        basemap: "topo-vector"
-    });
-
-    const view = new MapView({
-        container: "viewDiv",
-        map: map,
-        zoom: 4,
-        center: [-118, 34]
-    });
-</script>
-```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-## ESM CDN
-
-- Too many files requested for real-world use
-- Convenience for prototyping
-- _Please use a build tool_
-
- w/ defaults <!-- .element class="fragment" -->
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-4.png" -->
-## [@arcgis/core](https://npmjs.com/package/@arcgis/core)
-
-<div>
-  <img src="../common/images/esri.png" class="transparent" height="120" />
-  <img src="../common/images/Heart_corazon.svg" class="transparent" height="120" />
-  <img src="../common/images/webpack-icon-square-big.png" class="transparent" height="120" />
-  <img src="../common/images/rollup1.png" class="transparent" height="100" />
-</div>
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-### ArcGIS API is different
-
-- powerful library with large footprint
-- uses dynamic module loading & web workers
-- can slow your build; or not work w/ defaults <!-- .element class="fragment" -->
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-### Is your bundler smarter than you?
-
-<div>
-  <img src="../common/images/esri.png" class="transparent" height="120" />
-  <span style="font-size: 110px; position: relative; top: -30px">🤔</span>
-  <img src="../common/images/parcel-og.png" class="transparent" height="100" />
-  <img src="../common/images/snowpack-logo-white.png" class="transparent" height="90" />
-</div>
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
+<!-- Noah -->
 
 ### Try [esri-loader](https://github.com/Esri/esri-loader)
 
@@ -542,6 +404,114 @@ export default function Map({ latitude, longitude }) {
   return (<div style={{ height: 400 }} ref={ref} />);
 }
 ```
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
+<!--  Rene -->
+## ESM
+
+- Standard Module System for JavaScript
+- Better support in modern build tooling
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+## Getting Started
+
+```sh
+npm i @arcgis/core
+```
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+## Usage
+
+```js
+import WebMap from '@arcgis/core/WebMap';
+import MapView from '@arcgis/core/MapView';
+```
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+## npm and build tools
+
+- Benefits
+    - customized local build
+    - total JS between 400KB to 2MB
+    - depends on your application
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+## ESM CDN
+
+- _Testing purposes only_
+- I'm serious, listen to me
+
+```html
+<script type="module">
+    import ArcGISMap from "https://js.arcgis.com/4.18/@arcgis/core/Map.js";
+    import MapView from "https://js.arcgis.com/4.18/@arcgis/core/views/MapView.js";
+
+    const map = new ArcGISMap({
+        basemap: "topo-vector"
+    });
+
+    const view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 4,
+        center: [-118, 34]
+    });
+</script>
+```
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+## ESM CDN
+
+- Too many files requested for real-world use
+- Convenience for prototyping
+- _Please use a build tool_
+
+ w/ defaults <!-- .element class="fragment" -->
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-4.png" -->
+## [@arcgis/core](https://npmjs.com/package/@arcgis/core)
+
+<div>
+  <img src="../common/images/esri.png" class="transparent" height="120" />
+  <img src="../common/images/Heart_corazon.svg" class="transparent" height="120" />
+  <img src="../common/images/webpack-icon-square-big.png" class="transparent" height="120" />
+  <img src="../common/images/rollup1.png" class="transparent" height="100" />
+</div>
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
+### ArcGIS API is different
+
+- powerful library with large footprint
+- uses dynamic module loading & web workers
+- can slow your build; or not work w/ defaults <!-- .element class="fragment" -->
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
+### Is your bundler smarter than you?
+
+<div>
+  <img src="../common/images/esri.png" class="transparent" height="120" />
+  <span style="font-size: 110px; position: relative; top: -30px">🤔</span>
+  <img src="../common/images/parcel-og.png" class="transparent" height="100" />
+  <img src="../common/images/snowpack-logo-white.png" class="transparent" height="90" />
+</div>
 
 ---
 
