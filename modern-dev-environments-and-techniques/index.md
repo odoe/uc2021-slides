@@ -226,14 +226,6 @@ const map = new Map({
 
 ---
 
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-### <span style="color:yellow;">AMD</span> - requires a separate module loader
-
-### <span style="color:yellow;">ESM</span> - works natively in modern browsers
-
----
-
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
 <!-- Noah -->
 
