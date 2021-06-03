@@ -17,9 +17,33 @@
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
 ## Agenda
 
-- Stuff
-- More stuff
-- Alot more stuff
+- Using CDN and NPM
+- Advanced CDN Usage
+- Building modern apps
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+## Vanilla JS
+## or
+## Local builds
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+## Local build bundle files
+
+<img src="./img/bundles.png" />
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+## AMD
+## and
+## ES modules (ESM)
 
 ---
 
@@ -27,40 +51,13 @@
 
 #### https://developers.argis.com/javascript
 
-<img src="./img/api-ref.png" />
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-## Vanilla JS
-## vs
-## Local builds
+<img src="./img/api-ref-modules.png" />
 
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 
 ## AMD
-## vs
-## ES modules (ESM)
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-- <span style="color:yellow; text-align: left;">AMD is available as</span>
-  - CDN
-  - NPM (Local install)
-- <span style="color:yellow;">ESM is available as:</span>
-  - CDN <span style="color:yellow;">**</span>
-  - NPM (Local install)
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-AMD
 
 <span style="color:yellow;">(Not a W3C standard)</span>
 
@@ -77,29 +74,9 @@ define(() => {
 
 ```js
 // index.html
-require(['js/test-amd'],(test) => { let h = test.height); })
-```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-ESM
-
-<span style="color:yellow;">(ECMAScript 2015+)</span>
-
-```js
-// test-esm.js
-export const height = 300;
-export const width = 300;
-
-```
-
-```js
-// index.html
-import {height, width} from './test-esm.js';
-
-let h = height;
+require(['test-amd'],(test) => { 
+  let h = test.height); 
+})
 ```
 
 ---
@@ -107,27 +84,25 @@ let h = height;
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## AMD modules
 
-```js
+
+```html
+<script src="https://js.arcgis.com/4.20/"></script>
+<script>
   require([ "esri/Map", "esri/views/MapView" ], 
   (Map, MapView) => {
     // Code to create the map and view will go here
   });
-
+</script>
 ```
 
 - Available since 4.0 (May 2016)
-- Available via CDN and NPM
 
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## AMD CDN
 
-Perfect for Vanilla HTML/JS
-
-```html
-<script src="https://js.arcgis.com/4.20/"></script>
-```
+Perfect for Vanilla JS apps
 
 - Pros: 
   - Easy to update
@@ -141,7 +116,7 @@ Perfect for Vanilla HTML/JS
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 
-### AMD Loader
+### AMD Module Loader
 
 <img src="./img/init-loader.png" />
 
@@ -149,7 +124,7 @@ Perfect for Vanilla HTML/JS
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 
-### Browsers do not natively understand AMD
+### AMD needs a module loader, otherwise...
 
 <img width="1000" height="50" src="./img/require-not-defined.png" />
 <img width="1000" height="50" src="./img/define-not-defined.png" />
@@ -165,11 +140,32 @@ Use <code>arcgis-js-api</code> for API versions <= 4.18
   - Works with Dojo 1 and RequireJS
 
 - Cons: 
-  - Requires a separate module loader
+  - Still requires a module loader
   - Integration into frameworks isn't straightforward. For example, webpack requires <code>@arcgis/webpack-plugin*</code>
 
 ---
 
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+## ESM
+
+<span style="color:yellow;">(ES6 or ECMAScript 2015+)</span>
+
+```js
+// test-esm.js
+export const height = 300;
+export const width = 300;
+
+```
+
+```js
+// index.js
+import {height, width} from './test-esm.js';
+
+let h = height;
+```
+
+---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## ESM
@@ -185,23 +181,12 @@ Use <code>@arcgis/core</code> for API versions >= 4.19
 
 ```
 
-- Available via NPM (and CDN*)
-
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## ESM NPM
 
-```js
-  import Map from '@arcgis/core/Map';
-
-  const map = new Map({
-    basemap: "gray-vector"
-  });
-
-```
-
-- <code>@arcgis/core</code>
+<code>@arcgis/core</code>
 - <span style="color:yellow;">Primary use case is local builds</span>
 - Pros: 
   - Standardized module system
@@ -222,6 +207,40 @@ const map = new Map({
   basemap: "gray-vector"
 });
 
+```
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+- <span style="color:yellow; text-align: left;">AMD is available as</span>
+  - CDN
+  - NPM (Local install)
+- <span style="color:yellow;">ESM is available as:</span>
+  - CDN <span style="color:yellow;">**</span>
+  - NPM (Local install)
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+## Additional Resources
+
+- github.com/Esri/jsapi-resources
+- github.com/Esri/feedback-js-api-next 
+
+```
+## install the 'next' ESM version of the API
+npm i @arcgis/core@next
+
+## install the 'next' AMD version of the API
+npm i arcgis-js-api@next
+```
+
+Also, via AMD CDN:
+
+```html
+<script src="https://js.arcgis.com/next/"></script>
 ```
 
 ---
