@@ -25,13 +25,44 @@
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 
+#### https://developers.argis.com/javascript
+
 <img src="./img/api-ref.png" />
 
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 
+## Vanilla JS
+## vs
+## Local builds
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+## AMD
+## vs
+## ES modules (ESM)
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+- <span style="color:yellow; text-align: left;">AMD is available as</span>
+  - CDN
+  - NPM (Local install)
+- <span style="color:yellow;">ESM is available as:</span>
+  - CDN <span style="color:yellow;">**</span>
+  - NPM (Local install)
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
 AMD
+
+<span style="color:yellow;">(Not a W3C standard)</span>
 
 ```js
 // test-amd.js
@@ -49,7 +80,13 @@ define(() => {
 require(['js/test-amd'],(test) => { let h = test.height); })
 ```
 
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
 ESM
+
+<span style="color:yellow;">(ECMAScript 2015+)</span>
 
 ```js
 // test-esm.js
@@ -61,30 +98,11 @@ export const width = 300;
 ```js
 // index.html
 import {height, width} from './test-esm.js';
+
+let h = height;
 ```
 
 ---
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-- <span style="color:yellow; text-align: left;">AMD is available as</span>
-  - CDN
-  - NPM
-- <span style="color:yellow;">ESM is available as:</span>
-  - CDN
-  - NPM
-
----
-
-### Browsers do not natively understand AMD
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-<img width="1000" height="50" src="./img/require-not-defined.png" />
-<img width="1000" height="50" src="./img/define-not-defined.png" />
-
----
-
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## AMD modules
@@ -108,7 +126,7 @@ import {height, width} from './test-esm.js';
 Perfect for Vanilla HTML/JS
 
 ```html
-<script src="https://js.arcgis.com/4.18/"></script>
+<script src="https://js.arcgis.com/4.20/"></script>
 ```
 
 - Pros: 
@@ -122,9 +140,26 @@ Perfect for Vanilla HTML/JS
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+### AMD Loader
+
+<img src="./img/init-loader.png" />
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
+
+### Browsers do not natively understand AMD
+
+<img width="1000" height="50" src="./img/require-not-defined.png" />
+<img width="1000" height="50" src="./img/define-not-defined.png" />
+
+---
+
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## AMD NPM
 
-Use <code>arcgis-js-api</code> for API versions <= 4.17
+Use <code>arcgis-js-api</code> for API versions <= 4.18
 
 - Pros:
   - Works with Dojo 1 and RequireJS
@@ -138,6 +173,8 @@ Use <code>arcgis-js-api</code> for API versions <= 4.17
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## ESM
+
+Use <code>@arcgis/core</code> for API versions >= 4.19
 
 ```js
   import Map from '@arcgis/core/Map';
@@ -176,24 +213,16 @@ Use <code>arcgis-js-api</code> for API versions <= 4.17
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
 ## ESM CDN
 
-<span style="color:red;">Testing and prototyping only</span>
+<span style="color:yellow;font-weight:bold;">Testing and prototyping only</span>
 
 ```js
-import Map from "https://js.arcgis.com/4.18/@arcgis/core/Map.js";
+import Map from "https://js.arcgis.com/4.20/@arcgis/core/Map.js";
 
 const map = new Map({
   basemap: "gray-vector"
 });
 
 ```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-2.png" data-transition="fade" -->
-
-### <span style="color:yellow;">ESM</span> - works natively in modern browsers
-
-### <span style="color:yellow;">AMD</span> - requires a separate module loader
 
 ---
 
