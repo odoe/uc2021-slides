@@ -532,12 +532,15 @@ Consuming the ArcGIS API is easier than ever!
 
 ---
 
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" -->
-### You have [options](https://developers.arcgis.com/javascript/latest/tooling-intro/)
+<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
 
-- [@arcgis/core](https://developers.arcgis.com/javascript/latest/es-modules/)
-- [esri-loader](https://github.com/Esri/esri-loader)
-- [AMD Modules](https://developers.arcgis.com/javascript/latest/amd-build/)
+## Dev Environment
+
+- Easiest way to get started... use [VS Code](https://code.visualstudio.com/)
+- Review samples on [github](https://github.com/Esri/jsapi-resources/tree/master/esm-samples).
+- _I_ like [vitejs](https://vitejs.dev/)
+  - minimal, to zero config
+  - that's it, so easy you feel guilty
 
 ---
 
