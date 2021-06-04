@@ -246,7 +246,7 @@ Also, via AMD CDN:
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-<!-- Noah -->
+<!-- Noah #18-->
 
 ### Try [esri-loader](https://github.com/Esri/esri-loader)
 
@@ -254,6 +254,7 @@ Also, via AMD CDN:
   <img src="../common/images/esri.png" class="transparent" height="120" />
   <img src="../common/images/Heart_corazon.svg" class="transparent" height="120" />
   <img src="../common/images/webpack-icon-square-big.png" class="transparent" height="120" />
+  <img src="../common/images/react.png" class="transparent" height="120" />
   <img src="../common/images/rollup1.png" class="transparent" height="100" />
   <img src="../common/images/parcel-og.png" class="transparent" height="100" />
   <img src="../common/images/snowpack-logo-white.png" class="transparent" height="90" />
@@ -265,7 +266,7 @@ Also, via AMD CDN:
 ### Installing [esri-loader](https://github.com/Esri/esri-loader#install)
 
 <img class="transparent" src="../common/images/800px-Npm-logo.svg.png" style="width: 300px; margin: 110px 0;">
-<h3><code>npm install --save esri-loader</code></h3>
+<h5><code>npm install --save esri-loader</code></h5>
 
 ---
 
@@ -273,7 +274,7 @@ Also, via AMD CDN:
 ### Installing [esri-loader](https://github.com/Esri/esri-loader#install)
 
 <img class="transparent" src="../common/images/yarn-logo.png">
-<h3><code>yarn add esri-loader</code></h3>
+<h5><code>yarn add esri-loader</code></h5>
 
 ---
 
@@ -333,6 +334,7 @@ data-transition="none fade-out" -->
 ### [esri-loader options](https://github.com/Esri/esri-loader/#configuring-esri-loader)
 
 - Use an earlier release, even 3.x!
+- Even use a [later version](https://github.com/Esri/feedback-js-api-next)?
 - Use a local AMD build
 - Lazy load CSS
 
@@ -356,20 +358,9 @@ data-transition="none fade-out" -->
 ### What's the down side?
 
 <ul class="fragment">
+  <li>just AMD and vanilla JavaScript</li>
   <li>no <code>import</code> statements for ArcGIS modules</li>
-  <li>Requires pre-existing AMD Build (CDN or local)</li>
-</ul>
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" 
-data-transition="none fade-out" -->
-
-### What about custom builds?
-
-<ul>
-  <li>My app only needs 200k of the ArcGIS API!</li>
-  <li class="fragment">That's all you'll get from an AMD build!</li>
+  <li>requires pre-existing AMD build (CDN or local)</li>
 </ul>
 
 ---
@@ -385,78 +376,21 @@ data-transition="none fade-out" -->
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-4.png" data-transition="fade" -->
-### Demo: [esri-svelte-snowpack](https://github.com/tomwayson/esri-svelte-snowpack)
+### Demo: [esri-loader with react](https://github.com/odoe/uc2021-slides/tree/main/modern-dev-environments-and-techniques/demos/esri-loader-and-react-demo)
 
 <div>
   <img src="../common/images/esri.png" class="transparent" height="120" />
-  <img src="../common/images/1200px-Svelte_Logo.svg.png" class="transparent" height="120" />
-  <img src="../common/images/snowpack-logo-white.png" class="transparent" height="120" />
+  <img src="../common/images/react.png" class="transparent" height="120" />
 </div>
 
 
-- Scenario: hackathon, every second counts
-- Tools: [Snowpack](https://www.snowpack.dev/), [Svelte](https://svelte.dev/), [esri-loader](https://github.com/Esri/esri-loader)
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-4.png" data-transition="fade" -->
-### Example: esri-loader & WMR
-
-[esri-wmr](https://github.com/tomwayson/esri-wmr)
-
-- Scenario: hipster startup, only cutting edge tools
-- Tools: [WMR](https://github.com/preactjs/wmr), [Preact](https://preactjs.com/), [esri-loader-hooks](https://github.com/tomwayson/esri-loader-hooks)
+- Scenario: superhero themed hackathon
+- Tools: [React](https://reactjs.org/), [esri-loader](https://github.com/Esri/esri-loader)
 
 ---
 
 <!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-### [WMR](https://github.com/preactjs/wmr)
-
-<a href="https://github.com/preactjs/wmr"><img height="400" src="../common/images/wmr-screenshot.png" /></a>
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-### [esri-wmr](https://github.com/tomwayson/esri-wmr)
-
-<a href="https://github.com/tomwayson/esri-wmr"><img height="400" src="../common/images/esri-wmr-screenshot.png" /></a>
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-### [esri-loader-hooks](https://github.com/tomwayson/esri-loader-hooks)
-
-```
-import { useMap, useGraphic } from 'esri-loader-hooks';
-```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-### [`<Map />` Component](https://github.com/tomwayson/esri-wmr/blob/d1ecd40e331814d42ed6a815c2dea7aeea0cad28/public/pages/about/map.js)
-
-```
-import { useMap, useGraphic } from 'esri-loader-hooks';
-
-export default function Map({ latitude, longitude }) {
-  const geometry = { type: 'point', latitude, longitude };
-  const symbol = { type: 'simple-marker', color: [226, 119, 40] };
-  // load the map
-  const center = [longitude, latitude];
-  const [ref, view] = useMap(
-    { basemap: 'streets' },
-    { view: { center, zoom: 13 } 
-  });
-  // show a point on the map
-  useGraphic(view, { geometry, symbol });
-  return (<div style={{ height: 400 }} ref={ref} />);
-}
-```
-
----
-
-<!-- .slide: data-auto-animate data-background="../img/2021/uc/tech-sessions/bg-3.png" data-transition="fade" -->
-<!--  Rene -->
+<!--  Rene #29-->
 ## ESM
 
 - Standard Module System for JavaScript
